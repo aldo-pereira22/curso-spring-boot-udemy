@@ -1,10 +1,14 @@
 package principal.curso.entities;
 
 import java.io.Serializable;
+import java.util.HashSet;
+import java.util.Set;
 
 import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
 import javax.persistence.Table;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import principal.curso.entities.pk.OrderItemPK;
 
@@ -16,9 +20,12 @@ public class OrderItem implements Serializable{
 
 
 	@EmbeddedId
-	private OrderItemPK id;
+	private OrderItemPK id = new OrderItemPK();
 	private Integer quantity;
 	private Double price;
+	
+	
+
 	
 	public OrderItem() {
 		// TODO Auto-generated constructor stub
@@ -33,6 +40,7 @@ public class OrderItem implements Serializable{
 	}
 
 	
+	@JsonIgnore
 	public Order getOrder() {
 		return id.getOrder();
 	}
