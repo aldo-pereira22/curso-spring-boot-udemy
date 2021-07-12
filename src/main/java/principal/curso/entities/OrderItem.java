@@ -1,8 +1,6 @@
 package principal.curso.entities;
 
 import java.io.Serializable;
-import java.util.HashSet;
-import java.util.Set;
 
 import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
@@ -49,6 +47,7 @@ public class OrderItem implements Serializable{
 		id.setOrder(order);
 	}
 	
+
 	public Product getProduct() {
 		return id.getProduct();
 	}
